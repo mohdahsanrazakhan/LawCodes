@@ -9,6 +9,6 @@ registerSW(); // register service worker for PWA
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+      <App />
   </StrictMode>,
 )

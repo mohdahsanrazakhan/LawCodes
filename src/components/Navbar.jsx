@@ -1,35 +1,26 @@
-// import logo from '../../public/logo.svg';
-
-// const Navbar = () => {
-//   return (
-//     <div className="bg-[#f2f2f2]">
-//     <div className='container m-auto p-4 flex justify-between items-center'>
-//       <a href="/" className="font-bold text-xl"><img src={logo} className='w-[120px]' /></a>
-//       <div className="flex space-x-4">
-//         <a href="/history" className="text-blue-600 hover:underline">History</a>
-//         <a href="/bookmarks" className="text-blue-600 hover:underline">Bookmark</a>
-//         <a href="/blog" className="text-blue-600 hover:underline">Blog</a>
-//       </div>
-//     </div>
-//     </div>
-//   )
-// }
-
-// export default Navbar;
-
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import logo from '/logo.svg';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const location = useLocation();
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false); // close on link click
 
+  const navLinks = [
+    { name: 'About Us', path: '/about' },
+    { name: 'History', path: '/history' },
+    { name: 'Bookmark', path: '/bookmarks' },
+    { name: 'Blog', path: '/blog' },
+  ]
+
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <header className="bg-[#f2f2f2] shadow-sm fixed top-0 left-0 w-full z-50">
-      <div className="container m-auto px-4 py-3 flex justify-between items-center">
+    <header className="bg-[#f2f2f2] dark:bg-slate-800 shadow-sm fixed top-0 left-0 w-full z-50">
+      <div className="container max-w-5xl m-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img src={logo} alt="Logo" className="w-[120px]" />
@@ -37,10 +28,19 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden sm:flex space-x-6">
-          <a href="/about" className="text-blue-600 hover:underline">About Us</a>
-          <a href="/history" className="text-blue-600 hover:underline">History</a>
-          <a href="/bookmarks" className="text-blue-600 hover:underline">Bookmark</a>
-          <a href="/blog" className="text-blue-600 hover:underline">Blog</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.path}
+              href={link.path}
+              className={`relative inline-block text-[#5c47c4] dark:text-white hover:font-semibold transition-all duration-200 ${isActive(link.path)
+                ? "font-semibold after:content-[''] after:absolute after:left-0 after:bottom-[2px] after:h-[10px] after:w-full after:bg-[#5c47c44d] after:opacity-50 after:z-[-1] after:rounded-[1px]"
+                : ""
+                }`}
+
+            >
+              {link.name}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile Toggle */}
@@ -59,9 +59,20 @@ const Navbar = () => {
           className="sm:hidden px-4 pb-4 flex flex-col gap-2 animate-slide-down"
           onClick={closeMenu}
         >
-          <a href="/history" className="text-blue-600 hover:underline">History</a>
-          <a href="/bookmarks" className="text-blue-600 hover:underline">Bookmark</a>
-          <a href="/blog" className="text-blue-600 hover:underline">Blog</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.path}
+              href={link.path}
+              className={`relative inline-block text-[#5c47c4] hover:underline transition-all duration-200 ${isActive('/about')
+                ? 'font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-[#5c47c4] after:opacity-50 after:translate-y-1/2 after:z-[-1]'
+                : ''
+                }`}
+
+
+            >
+              {link.name}
+            </a>
+          ))}
         </nav>
       )}
     </header>

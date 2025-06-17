@@ -1,26 +1,3 @@
-// const Footer = () => {
-//   const currentYear = new Date().getFullYear();
-
-//   return (
-//     <footer className="bg-[#f2f2f2] text-slate-800 py-4 shadow-[0_-3px_2px_-1px_rgba(0,0,0,0.1)]">
-//       <div className="container mx-auto text-center">
-//         <p className="text-sm">&copy; {currentYear} LawCodes.in, All Rights Reserved.</p>
-//         <p className="text-sm">
-//           Made with ❤️ by{" "}
-//           <a
-//             href="https://heymark.vercel.app"
-//             className="text-blue-400 hover:underline"
-//           >
-//             md_mark
-//           </a>
-//         </p>
-//       </div>
-//     </footer>
-//   )
-// }
-
-// export default Footer;
-
 import logo from '/logo.svg';
 import { Link } from 'react-router-dom';
 
@@ -65,7 +42,7 @@ const Footer = () => {
       {/* Bottom Text */}
       <div className="mt-10 text-center text-xs text-gray-600">
         <p>&copy; {currentYear} LawCodes.in, All Rights Reserved.</p>
-        <p className="mt-1">
+        {/* <p className="mt-1">
           Made with ❤️ by{' '}
           <a
             href="https://heymark.vercel.app"
@@ -75,7 +52,7 @@ const Footer = () => {
           >
             md_mark
           </a>
-        </p>
+        </p> */}
       </div>
     </footer>
   );
