@@ -19,7 +19,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="bg-[#f2f2f2] dark:bg-slate-800 shadow-sm fixed top-0 left-0 w-full z-50">
+    <header className="bg-[#f2f2f2] dark:bg-[#222831] shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="container max-w-5xl m-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center">
@@ -27,12 +27,12 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden sm:flex space-x-6">
+        <nav className="hidden sm:flex space-x-6 items-center">
           {navLinks.map((link) => (
             <a
               key={link.path}
               href={link.path}
-              className={`relative inline-block text-[#5c47c4] dark:text-white hover:font-semibold transition-all duration-200 ${isActive(link.path)
+              className={`relative inline-block text-[#5c47c4] dark:text-[#c6bdff] hover:font-semibold transition-all duration-200 ${isActive(link.path)
                 ? "font-semibold after:content-[''] after:absolute after:left-0 after:bottom-[2px] after:h-[10px] after:w-full after:bg-[#5c47c44d] after:opacity-50 after:z-[-1] after:rounded-[1px]"
                 : ""
                 }`}
@@ -45,7 +45,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="sm:hidden text-gray-800"
+          className="sm:hidden text-gray-800 dark:text-gray-200"
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
@@ -63,12 +63,10 @@ const Navbar = () => {
             <a
               key={link.path}
               href={link.path}
-              className={`relative inline-block text-[#5c47c4] hover:underline transition-all duration-200 ${isActive('/about')
-                ? 'font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-[#5c47c4] after:opacity-50 after:translate-y-1/2 after:z-[-1]'
+              className={`relative inline-block text-[#5c47c4] dark:text-[#c6bdff] hover:underline transition-all duration-200 ${isActive('/about')
+                ? 'font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-[#5c47c4] after:dark:bg-[#b6aaff] after:opacity-50 after:translate-y-1/2 after:z-[-1]'
                 : ''
                 }`}
-
-
             >
               {link.name}
             </a>

@@ -10,11 +10,13 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Contact from "./pages/Contact";
+import Disclaimer from "./pages/Disclaimer";
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen dark:bg-[#2d333b]">
       <Navbar />
       <main className="pt-16 flex-1">
       <Routes>
@@ -29,6 +31,8 @@ function App() {
         <Route path="/post/:id" element={<SinglePost />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/contact-us" element={<Contact />} />
+        {/* <Route path="/disclaimer" element={<Disclaimer />} /> */}
       </Routes>
       </main>
       <Footer />

@@ -57,15 +57,15 @@ const Detail = () => {
     }
   }, [law, source]);
 
-  if (!law) return <p className="p-4">Section not found.</p>;
+  if (!law) return <p className="p-4 text-gray-500 dark:text-gray-200">Section not found.</p>;
 
   const { section_title, section_desc } = law;
 
   return (
-    <div className="min-h-screen max-w-2xl m-auto text-black p-4">
-      <div className="flex items-center justify-between bg-[#f2f2f2] py-2 px-4 rounded">
+    <div className="min-h-screen max-w-2xl m-auto text-gray-800 dark:text-gray-200 p-4">
+      <div className="flex items-center justify-between bg-[#f2f2f2] dark:bg-[#222831] py-2 px-4 rounded">
         <div className="flex items-center group px-2 pr-4 py-1 rounded transition-colors duration-200 hover:bg-purple-200">
-          <Link to="/" className="text-[#5c47c4] underline flex items-center">
+          <Link to="/" className="text-[#5c47c4] dark:text-[#c6bdff] hover:dark:text-[#5c47c4] underline flex items-center">
             <ChevronLeft />
           </Link>
           <span
@@ -79,7 +79,7 @@ const Detail = () => {
           onClick={toggleBookmark}
           className={`px-4 py-2 rounded cursor-pointer ${isBookmarked
             ? "bg-purple-200"
-            : "bg-purple-100"
+            : "bg-purple-100 dark:bg-[#c6bdff]"
             }`}
         >
           {isBookmarked ? <Bookmark stroke="#5c47c4" fill="#5c47c4" /> : <Bookmark stroke="#5c47c4" />}
@@ -88,7 +88,7 @@ const Detail = () => {
       <h1 className="text-xl font-bold mt-4">
         {source.toUpperCase()} - Section {section}: {section_title}
       </h1>
-      <p className="mt-4 whitespace-pre-line text-gray-700">{section_desc}</p>
+      <p className="mt-4 whitespace-pre-line text-gray-700 dark:text-gray-200">{section_desc}</p>
     </div>
   );
 };

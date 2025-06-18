@@ -21,16 +21,16 @@ const SinglePost = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+      <h1 className="text-3xl font-bold mb-2 text-[#5c47c4] dark:text-[#c6bdff]">{post.title}</h1>
       <img
         src={post.images?.[0]?.url || post.content.match(/<img.*?src="(.*?)"/)?.[1] || "/default-thumbnail.jpg"}
         alt="thumbnail"
         className="w-full h-64 object-cover rounded mb-4"
       />
-      <div className="text-gray-600 mb-6">
+      <div className="text-gray-600 dark:text-gray-400 mb-6">
         {new Date(post.published).toLocaleDateString()} by {post.author.displayName}
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className="text-gray-800 dark:text-gray-200" dangerouslySetInnerHTML={{ __html: post.content }} />
 
       {/* <div className="mt-8 flex justify-between text-blue-600">
         {prevPost && <Link to={`/post/${prevPost.id}`}>← {prevPost.title}</Link>}
@@ -38,7 +38,7 @@ const SinglePost = () => {
       </div> */}
 
       {post && (
-        <div className="flex items-center gap-4 my-6 p-4 rounded-lg bg-[#f2f2f2]">
+        <div className="flex items-center gap-4 my-6 p-4 rounded-lg bg-[#f2f2f2] dark:bg-[#222831] text-gray-800 dark:text-gray-200">
           <img src={post.author.image.url} className="w-16 h-16 rounded-full" alt={`Avatar of ${post.author.displayName}`} />
           <div>
             <h3 className="font-semibold">{post.author.displayName}</h3>

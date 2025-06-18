@@ -23,7 +23,7 @@ const Bookmark = () => {
   return (
     <div className="container max-w-2xl mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">Bookmarked Sections</h2>
+        <h2 className="text-2xl font-bold text-[#5c47c4] dark:text-[#c6bdff]">Bookmarked Sections</h2>
         {bookmarks.length > 0 && (
           <button
             onClick={handleClearBookmarks}
@@ -36,9 +36,9 @@ const Bookmark = () => {
       </div>
 
       {bookmarks.length === 0 ? (
-        <p className="text-gray-500">No bookmarks found.</p>
+        <p className="text-gray-500 dark:text-gray-200">No bookmarks found.</p>
       ) : (
-        <ul className="space-y-4">
+        <ul className="space-y-4 text-gray-800 dark:text-gray-200">
           {bookmarks.map((item, idx) => (
             <li key={idx} className="p-4 border rounded hover:shadow-sm transition-shadow">
               <div className="flex flex-col gap-2">
@@ -50,7 +50,7 @@ const Bookmark = () => {
                     {item.source} - Section {item.section}
                   </p>
                   <p className="text-sm">{item.title}</p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                     Bookmarked on: {new Date(item.timestamp).toLocaleString()}
                   </p>
                 </Link>

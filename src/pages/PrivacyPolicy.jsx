@@ -1,7 +1,7 @@
 const PrivacyPolicy = () => {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6 text-gray-800">
-      <h1 className="text-3xl font-bold mb-6 text-[#5c47c4]">Privacy Policy</h1>
+    <div className="max-w-2xl mx-auto px-4 py-6 text-gray-800 dark:text-gray-200">
+      <h1 className="text-3xl font-bold mb-6 text-[#5c47c4] dark:text-[#c6bdff]">Privacy Policy</h1>
 
       <p className="mb-4">
         At <strong>LawCodes.in</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
 
       <p>
         For any concerns or questions, contact us at:{" "}
-        <a href="mailto:support@lawcodes.in" className="text-blue-600 underline">
+        <a href="mailto:support@lawcodes.in" className="text-[#5c47c4] dark:text-[#afa2ff] underline">
           support@lawcodes.in
         </a>
       </p>

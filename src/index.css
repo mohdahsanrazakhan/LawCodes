@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* :root {
+  --light-primary: #f9f9f9;
+  --light-secondary: #f2f2f2;
+  --light-accent: #5c47c4;
+  --light-text: text-gray-800;
+  --dark-primary: #1a1a1a;
+  --dark-secondary: #222831;
+  --dark-accent: #c6bdff;
+  --dark-text: text-gray-200;
+} */
+
 html {
   transition: background-color 0.3s, color 0.3s;
 }
+
 body {
   background-color: #f9f9f9;
   font-family: "Roboto", sans-serif;
