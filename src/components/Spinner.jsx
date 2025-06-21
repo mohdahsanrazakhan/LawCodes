@@ -1,5 +1,5 @@
 // A gif spinner
-import ghost from "/ghost.gif";
+import ghost from "../assets/ghost.gif";
 const Spinner = () => {
   return (
     <div className="flex justify-center items-center h-full py-8">
