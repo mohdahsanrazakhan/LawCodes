@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchPosts } from "../api/blogger";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import NotFound from "../components/NotFound";
 
 const BlogPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -50,13 +51,11 @@ const BlogPosts = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
-      <h2 className="text-2xl font-bold text-[#5c47c4] dark:text-[#c6bdff]">Blogs</h2>
       {!posts || posts.length === 0 ? (
-        <div className="text-gray-500 dark:text-gray-200">
-          No blog found.
-        </div>
+        <NotFound page="blogs" />
       ) : (
         <>
+      <h2 className="text-2xl font-bold text-[#5c47c4] dark:text-[#c6bdff]">Blogs</h2>
           {posts.map(post => (
             <div key={post.id} className="flex sm:flex-row flex-col border rounded p-2 gap-2 sm:gap-4 bg-slate-50 dark:bg-[#222831] hover:shadow-sm">
               <img
