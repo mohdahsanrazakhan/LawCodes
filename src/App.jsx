@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import SearchLaw from "./components/SearchLaw";
 import Detail from "./pages/Detail";
 import Navbar from "./components/Navbar";
@@ -13,9 +14,17 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import Contact from "./pages/Contact";
 import Disclaimer from "./pages/Disclaimer";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  // Scroll to top when route changes
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
     <div className="flex flex-col min-h-screen dark:bg-[#2d333b]">
       <Navbar />
       <main className="pt-16 flex-1">
