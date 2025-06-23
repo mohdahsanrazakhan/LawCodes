@@ -14,8 +14,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'LawCodes.in',
-        short_name: 'LawCodes',
+        name: 'LegalCodes.in',
+        short_name: 'LegalCodes',
         description: 'Search Indian Laws - IPC, CRPC, IEA, etc.',
         theme_color: '#5c47c4',
         background_color: '#f9f9f9',
