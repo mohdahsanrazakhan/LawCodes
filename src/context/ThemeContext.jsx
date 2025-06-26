@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }) => {
     }
     localStorage.setItem('theme', theme);
 
-    console.log('Current theme:', theme);
+    // console.log('Current theme:', theme);
   }, [theme]);
 
   const toggleTheme = () => {
