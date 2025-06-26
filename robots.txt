@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.legalcodes.in/sitemap.xml
+Host: https://www.legalcodes.in

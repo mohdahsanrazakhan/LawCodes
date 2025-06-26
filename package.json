@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run sitemap",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sitemap": "node generate-sitemap.js"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/vite": "^4.1.8",
+    "fs-extra": "^11.3.0",
     "fuse.js": "^7.1.0",
     "idb": "^8.0.3",
     "lodash.debounce": "^4.0.8",
@@ -21,7 +23,10 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
-    "tailwindcss": "^4.1.8"
+    "sitemap": "^8.0.0",
+    "tailwindcss": "^4.1.8",
+    "vite-plugin-pages": "^0.33.1",
+    "vite-plugin-sitemap": "^0.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
