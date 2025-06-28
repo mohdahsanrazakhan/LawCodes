@@ -14,6 +14,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import Contact from "./pages/Contact";
 import Disclaimer from "./pages/Disclaimer";
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
+import PageTracker from "./components/PageTracker";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <PageTracker /> {/* ✅ Now it has access to useLocation() */}
         <div className="flex flex-col min-h-screen dark:bg-[#2d333b]">
           <Navbar />
           <main className="pt-16 flex-1">
@@ -41,7 +43,7 @@ function App() {
               <Route path="/blog" element={<BlogPosts />} />
               <Route path="/post/:id" element={<SinglePost />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/contact-us" element={<Contact />} />
               {/* <Route path="/disclaimer" element={<Disclaimer />} /> */}
             </Routes>

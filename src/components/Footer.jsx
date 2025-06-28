@@ -37,14 +37,14 @@ const Footer = () => {
             <Link to="/blog" className="hover:underline block mb-1">Blog</Link>
             {/* <Link to="/disclaimer" className="hover:underline block mb-1">Disclaimer</Link> */}
             <Link to="/privacy-policy" className="hover:underline block mb-1">Privacy Policy</Link>
-            <Link to="/terms" className="hover:underline block">Terms & Conditions</Link>
+            <Link to="/terms-and-conditions" className="hover:underline block">Terms & Conditions</Link>
           </div>
         </div>
       </div>
 
       {/* Bottom Text */}
       <div className="mt-10 max-w-5xl mx-auto text-center text-sm text-gray-600 dark:text-gray-500 flex flex-wrap-reverse gap-5 items-center justify-between">
-        <p>&copy; {currentYear} LawCodes.in, All Rights Reserved.</p>
+        <p>&copy; {currentYear} LegalCodes.in, All Rights Reserved.</p>
         <ThemeToggle />
         {/* <p className="mt-1">
           Made with ❤️ by{' '}
