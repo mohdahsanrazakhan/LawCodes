@@ -13,14 +13,14 @@ const Contact = () => {
       <div className="min-h-screen py-16 px-4 text-textLight dark:text-textDark">
         {/* Contact Info */}
         <p className="text-center mb-2 text-gray-600 dark:text-gray-300 bg-[#f9f9f9] dark:bg-gray-800 border dark:border-slate-600 max-w-2xl mx-auto p-4 rounded-md shadow-md font-mono">
-          Need help? Contact us at <a href="mailto:support@lawcodes.com" className="text-[#5c47c4] dark:text-[#afa2ff] underline">support@lawcodes.com</a>
+          Need help? Contact us at <a href="mailto:support@legalcodes.in" className="text-[#5c47c4] dark:text-[#afa2ff] underline">support@legalcodes.in</a>
         </p>
 
         <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-md shadow-md">
 
-          <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-200">Give Feedback on LawCodes 🧾</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center text-gray-800 dark:text-gray-200">Give Feedback on LegalCodes 🧾</h2>
           <p className="text-center mb-6 text-gray-800 dark:text-gray-400">
-            Your thoughts help us improve LawCodes and serve the legal community better. We read every submission!
+            Your thoughts help us improve LegalCodes and serve the legal community better. We read every submission!
           </p>
           <form
             name="feedback"
@@ -55,7 +55,7 @@ const Contact = () => {
 
             {/* Experience */}
             <div>
-              <label className="block mb-1 font-medium">How was your experience with LawCodes?</label>
+              <label className="block mb-1 font-medium">How was your experience with LegalCodes?</label>
               <div className="space-x-4 mt-2">
                 {["Excellent", "Good", "Average", "Poor"].map((opt) => (
                   <label key={opt}>

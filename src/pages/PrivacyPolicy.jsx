@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
         <h1 className="text-3xl font-bold mb-6 text-[#5c47c4] dark:text-[#c6bdff]">Privacy Policy</h1>
 
         <p className="mb-4">
-          At <strong>LawCodes.in</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
+          At <strong>LegalCodes.in</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
         </p>
 
         <h2 className="text-xl font-semibold mt-6 mb-2">1. Information We Collect</h2>
@@ -47,8 +47,8 @@ const PrivacyPolicy = () => {
 
         <p>
           For any concerns or questions, contact us at:{" "}
-          <a href="mailto:support@lawcodes.in" className="text-[#5c47c4] dark:text-[#afa2ff] underline">
-            support@lawcodes.in
+          <a href="mailto:support@legalcodes.in" className="text-[#5c47c4] dark:text-[#afa2ff] underline">
+            support@legalcodes.in
           </a>
         </p>
       </div>

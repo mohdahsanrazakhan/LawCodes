@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="LawCodes Logo" className="w-28 mb-2" />
             <p className="text-left">
-              <strong>LawCodes.in</strong> is your free resource for browsing Indian legal codes like IPC, CrPC, IEA, and more. Simplified, fast, and mobile-friendly.
+              <strong>LegalCodes.in</strong> is your free resource for browsing Indian legal codes like IPC, CrPC, IEA, and more. Simplified, fast, and mobile-friendly.
             </p>
           </div>
         </div>
