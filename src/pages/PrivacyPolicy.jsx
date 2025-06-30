@@ -1,4 +1,5 @@
 import { Helmet } from "@dr.pogodin/react-helmet";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
   return (
@@ -46,10 +47,8 @@ const PrivacyPolicy = () => {
         </p>
 
         <p>
-          For any concerns or questions, contact us at:{" "}
-          <a href="mailto:support@legalcodes.in" className="text-[#5c47c4] dark:text-[#afa2ff] underline">
-            support@legalcodes.in
-          </a>
+          For any concerns or questions, contact us at:{" "} <Link to="/contact-us" className={`relative inline-block text-[#5c47c4] dark:text-[#c6bdff] hover:font-semibold transition-all duration-200 font-semibold after:content-[''] after:absolute after:left-0 after:bottom-[2px] after:h-[10px] after:w-full after:bg-[#5c47c44d] after:opacity-50 after:z-[-1] after:rounded-[1px]"
+          }`}>here</Link>
         </p>
       </div>
     </>

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.2",
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/vite": "^4.1.8",
     "fs-extra": "^11.3.0",
