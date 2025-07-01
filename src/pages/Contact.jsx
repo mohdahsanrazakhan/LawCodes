@@ -1,10 +1,12 @@
 import { Helmet } from "@dr.pogodin/react-helmet";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const contactFormRef = useRef(null);
   const feedbackFormRef = useRef(null);
+  const [contactSuccess, setContactSuccess] = useState(false);
+  const [feedbackSuccess, setFeedbackSuccess] = useState(false);
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const contactTemplateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
   const feedbackTemplateId = import.meta.env.VITE_EMAILJS_FEEDBACK_TEMPLATE_ID;
@@ -12,19 +14,25 @@ const Contact = () => {
 
   const sendContactEmail = (e) => {
     e.preventDefault();
+    if (!contactFormRef.current) return;
     emailjs
       .sendForm(
-        serviceId,     
+        serviceId,
         contactTemplateId,
         contactFormRef.current,
         publicKey
       )
-      .then(() => alert("✅ Message sent!"))
+      .then(() => {
+        contactFormRef.current.reset();
+        setContactSuccess(true);
+        setTimeout(() => setContactSuccess(false), 3000);
+      })
       .catch(() => alert("❌ Failed to send message"));
   };
 
   const sendFeedbackEmail = (e) => {
     e.preventDefault();
+    if (!feedbackFormRef.current) return;
     emailjs
       .sendForm(
         serviceId,
@@ -32,9 +40,17 @@ const Contact = () => {
         feedbackFormRef.current,
         publicKey
       )
-      .then(() => alert("✅ Feedback sent!"))
+      .then(() => {
+        feedbackFormRef.current.reset();
+        setFeedbackSuccess(true);
+        setTimeout(() => setFeedbackSuccess(false), 3000);
+      })
       .catch(() => alert("❌ Failed to send feedback"));
   };
+
+  if (!serviceId || !contactTemplateId || !feedbackTemplateId || !publicKey) {
+    throw new Error("❌ EmailJS ENV variables are not configured correctly.");
+  }
 
   return (
     <>
@@ -82,8 +98,8 @@ const Contact = () => {
                 className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
               ></textarea>
             </div>
-            <button type="submit" className="w-full bg-[#5c47c4] hover:bg-[#4737a1] text-white py-2 px-4 rounded-md transition">
-              Send Message
+            <button type="submit" disabled={contactSuccess} className={`w-full ${contactSuccess ? "bg-green-600" : "bg-[#5c47c4] hover:bg-[#4737a1]"} text-white py-2 px-4 rounded-md transition`}>
+              {contactSuccess ? "✅ Message Sent!" : "Send Message"}
             </button>
           </form>
         </div>
@@ -140,8 +156,8 @@ const Contact = () => {
               <label className="block mb-1 font-medium">Did you encounter any problems?</label>
               <textarea name="issue" rows="2" className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"></textarea>
             </div>
-            <button type="submit" className="w-full bg-[#5c47c4] hover:bg-[#4737a1] text-white py-2 px-4 rounded-md transition">
-              Submit Feedback
+            <button type="submit" disabled={feedbackSuccess} className={`w-full ${feedbackSuccess ? "bg-green-600" : "bg-[#5c47c4] hover:bg-[#4737a1]"} text-white py-2 px-4 rounded-md transition`}>
+              {feedbackSuccess ? "✅ Feedback Sent!" : "Submit Feedback"}
             </button>
           </form>
         </div>
