@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { fetchSinglePost, fetchPosts } from "../api/blogger";
 import Spinner from "./Spinner";
 import { Helmet } from "@dr.pogodin/react-helmet";
+import DOMPurify from "dompurify";
 
 const SinglePost = () => {
   const { id } = useParams();
@@ -14,15 +15,49 @@ const SinglePost = () => {
     fetchPosts().then(data => setRelatedPosts(data.items || []));
   }, [id]);
 
+  if (!post) return <Spinner />;
+
+  // Sanitize and style content after post is available
+  let cleanHTML = post.content;
+
+  // Headings
+  cleanHTML = cleanHTML.replace(/<h1>/g, '<h1 class="text-3xl font-bold my-4">');
+  cleanHTML = cleanHTML.replace(/<h2>/g, '<h2 class="text-2xl font-semibold my-3">');
+  cleanHTML = cleanHTML.replace(/<h3>/g, '<h3 class="text-xl font-medium my-2">');
+
+  // Paragraphs
+  cleanHTML = cleanHTML.replace(/<p>/g, '<p class="my-2 leading-relaxed">');
+
+  // Lists
+  cleanHTML = cleanHTML.replace(/<ul>/g, '<ul class="list-disc pl-6 my-2">');
+  cleanHTML = cleanHTML.replace(/<ol>/g, '<ol class="list-decimal pl-6 my-2">');
+  cleanHTML = cleanHTML.replace(/<li>/g, '<li class="mb-1">');
+
+  // Links
+  cleanHTML = cleanHTML.replace(/<a /g, '<a class="text-blue-600 underline hover:text-blue-800" ');
+
+  // Bold/Italic
+  cleanHTML = cleanHTML.replace(/<strong>/g, '<strong class="font-bold">');
+  cleanHTML = cleanHTML.replace(/<b>/g, '<b class="font-bold">');
+  cleanHTML = cleanHTML.replace(/<em>/g, '<em class="italic">');
+  cleanHTML = cleanHTML.replace(/<i>/g, '<i class="italic">');
+
+  // Images
+  cleanHTML = cleanHTML.replace(/<img /g, '<img class="my-4 rounded-md w-full max-w-screen-sm" ');
+
+  // Blockquotes
+  cleanHTML = cleanHTML.replace(/<blockquote>/g, '<blockquote class="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600">');
+
+  // Code blocks
+  cleanHTML = cleanHTML.replace(/<pre>/g, '<pre class="bg-gray-100 p-4 rounded-md overflow-x-auto my-4">');
+  cleanHTML = cleanHTML.replace(/<code>/g, '<code class="font-mono text-sm">');
+
   const currentIndex = relatedPosts.findIndex(p => p.id === id);
   const prevPost = relatedPosts[currentIndex - 1];
   const nextPost = relatedPosts[currentIndex + 1];
 
-  if (!post) return <Spinner />;
-
   return (
     <>
-      {/* SEO */}
       <Helmet>
         <title>{post.title} | Legal Codes Blog</title>
         <meta name="description" content={post.description || post.content.slice(0, 150)} />
@@ -30,21 +65,20 @@ const SinglePost = () => {
       </Helmet>
 
       <div className="max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-2 text-[#5c47c4] dark:text-[#c6bdff]">{post.title}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-[#5c47c4] dark:text-[#c6bdff]">{post.title}</h1>
         <img
           src={post.images?.[0]?.url || post.content.match(/<img.*?src="(.*?)"/)?.[1] || "/default-thumbnail.jpg"}
           alt="thumbnail"
-          className="w-full h-64 object-cover rounded mb-4"
+          className="w-full h-full object-cover rounded mb-2"
         />
-        <div className="text-gray-600 dark:text-gray-400 mb-6">
+        <div className="text-gray-600 dark:text-gray-400 mb-3">
           {new Date(post.published).toLocaleDateString()} by {post.author.displayName}
         </div>
-        <div className="text-gray-800 dark:text-gray-200" dangerouslySetInnerHTML={{ __html: post.content }} />
 
-        {/* <div className="mt-8 flex justify-between text-blue-600">
-        {prevPost && <Link to={`/post/${prevPost.id}`}>← {prevPost.title}</Link>}
-        {nextPost && <Link to={`/post/${nextPost.id}`}>{nextPost.title} →</Link>}
-      </div> */}
+        <div
+          className="prose prose-lg dark:prose-invert"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(cleanHTML) }}
+        />
 
         {post && (
           <div className="flex items-center gap-4 my-6 p-4 rounded-lg bg-[#f2f2f2] dark:bg-[#222831] text-gray-800 dark:text-gray-200">
@@ -55,15 +89,6 @@ const SinglePost = () => {
             </div>
           </div>
         )}
-        {/* <h4>Related Posts by Author</h4>
-      {relatedPosts.filter(p => p.author.id === post.author.id && p.id !== post.id)
-        .map(p => <Link to={`/post/${p.id}`}>{p.title}</Link>)} */}
-
-
-        {/* <div className="mt-8">
-        <h3 className="text-xl font-semibold mb-2">Comments</h3>
-        <p className="text-sm text-gray-500">Blogger API doesn't support comment reading directly without OAuth. Use Disqus or Facebook plugin instead.</p>
-      </div> */}
       </div>
     </>
   );
