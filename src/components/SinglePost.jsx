@@ -21,36 +21,36 @@ const SinglePost = () => {
   let cleanHTML = post.content;
 
   // Headings
-  cleanHTML = cleanHTML.replace(/<h1>/g, '<h1 class="text-3xl font-bold my-4">');
-  cleanHTML = cleanHTML.replace(/<h2>/g, '<h2 class="text-2xl font-semibold my-3">');
-  cleanHTML = cleanHTML.replace(/<h3>/g, '<h3 class="text-xl font-medium my-2">');
+  cleanHTML = cleanHTML.replace(/<h1>/g, '<h1 class="text-3xl font-bold my-4 text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<h2>/g, '<h2 class="text-2xl font-semibold my-3 text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<h3>/g, '<h3 class="text-xl font-medium my-2 text-gray-800 dark:text-slate-200">');
 
   // Paragraphs
-  cleanHTML = cleanHTML.replace(/<p>/g, '<p class="my-2 leading-relaxed">');
+  cleanHTML = cleanHTML.replace(/<p>/g, '<p class="my-2 leading-relaxed text-gray-800 dark:text-slate-200">');
 
   // Lists
-  cleanHTML = cleanHTML.replace(/<ul>/g, '<ul class="list-disc pl-6 my-2">');
-  cleanHTML = cleanHTML.replace(/<ol>/g, '<ol class="list-decimal pl-6 my-2">');
-  cleanHTML = cleanHTML.replace(/<li>/g, '<li class="mb-1">');
+  cleanHTML = cleanHTML.replace(/<ul>/g, '<ul class="list-disc pl-6 my-2 text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<ol>/g, '<ol class="list-decimal pl-6 my-2 text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<li>/g, '<li class="mb-1 text-gray-800 dark:text-slate-200">');
 
   // Links
-  cleanHTML = cleanHTML.replace(/<a /g, '<a class="text-blue-600 underline hover:text-blue-800" ');
+  cleanHTML = cleanHTML.replace(/<a /g, '<a class="underline hover:text-[#534695] text-[#5c47c4] dark:text-[#c6bdff]" ');
 
   // Bold/Italic
-  cleanHTML = cleanHTML.replace(/<strong>/g, '<strong class="font-bold">');
-  cleanHTML = cleanHTML.replace(/<b>/g, '<b class="font-bold">');
-  cleanHTML = cleanHTML.replace(/<em>/g, '<em class="italic">');
-  cleanHTML = cleanHTML.replace(/<i>/g, '<i class="italic">');
+  cleanHTML = cleanHTML.replace(/<strong>/g, '<strong class="font-bold text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<b>/g, '<b class="font-bold text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<em>/g, '<em class="italic text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<i>/g, '<i class="italic text-gray-800 dark:text-slate-200">');
 
   // Images
-  cleanHTML = cleanHTML.replace(/<img /g, '<img class="my-4 rounded-md w-full max-w-screen-sm" ');
+  cleanHTML = cleanHTML.replace(/<img /g, '<img class="my-4 rounded-md w-full max-w-screen-sm text-gray-800 dark:text-slate-200" ');
 
   // Blockquotes
   cleanHTML = cleanHTML.replace(/<blockquote>/g, '<blockquote class="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600">');
 
   // Code blocks
-  cleanHTML = cleanHTML.replace(/<pre>/g, '<pre class="bg-gray-100 p-4 rounded-md overflow-x-auto my-4">');
-  cleanHTML = cleanHTML.replace(/<code>/g, '<code class="font-mono text-sm">');
+  cleanHTML = cleanHTML.replace(/<pre>/g, '<pre class="bg-gray-100 p-4 rounded-md overflow-x-auto my-4 text-gray-800 dark:text-slate-200">');
+  cleanHTML = cleanHTML.replace(/<code>/g, '<code class="font-mono text-sm text-gray-800 dark:text-slate-200">');
 
   const currentIndex = relatedPosts.findIndex(p => p.id === id);
   const prevPost = relatedPosts[currentIndex - 1];

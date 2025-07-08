@@ -131,12 +131,34 @@ const SearchLaw = () => {
   return (
     <>
       {/* SEO */}
-      <title>Legal Codes | Find Indian Laws & Acts Easily</title>
-      <meta name="description" content="Search Indian legal codes, laws, and acts effortlessly. LegalCodes.in provides accurate and fast legal search." />
-      <link rel="canonical" href="https://www.legalcodes.in/" />
+      <Helmet>
+        <html lang="en" />
+        <title>Legal Codes | Find Indian Laws & Acts Easily</title>
+        <meta name="description" content="Search Indian legal codes, laws, and acts effortlessly. LegalCodes.in provides accurate and fast legal search." />
+        <meta name="keywords" content="Indian law, Indian legal codes, Indian acts, Constitution of India, Indian Penal Code, RTI Act, GST Act, consumer protection act, labor law India, legal search engine India, find Indian laws, Indian legal database" />
+        <link rel="canonical" href="https://www.legalcodes.in/" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="LegalCodes.in" />
+
+        {/* Viewport for responsiveness */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Open Graph (Facebook, LinkedIn, etc.) */}
+        <meta property="og:title" content="Legal Codes | Find Indian Laws & Acts Easily" />
+        <meta property="og:description" content="Search Indian legal codes, laws, and acts effortlessly. LegalCodes.in provides accurate and fast legal search." />
+        <meta property="og:url" content="https://www.legalcodes.in/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://legalcodes.in/logo.svg" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Legal Codes | Find Indian Laws & Acts Easily" />
+        <meta name="twitter:description" content="Search Indian legal codes, laws, and acts effortlessly. LegalCodes.in provides accurate and fast legal search." />
+        <meta name="twitter:image" content="https://legalcodes.in/logo.svg" />
+      </Helmet>
 
       {/* Checkboxes */}
-      <div className="flex justify-left gap-4 mt-6 flex-wrap text-sm sm:text-base max-w-2xl mx-auto">
+      <div className="flex justify-left gap-4 mt-6 flex-wrap text-sm sm:text-base max-w-2xl mx-auto text-gray-800 dark:text-slate-200">
         <p>Filter:</p>
         {["IPC", "CRPC", "IEA"].map((key) => (
           <label key={key} className="flex items-center gap-1">
