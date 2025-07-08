@@ -135,7 +135,7 @@ const SearchLaw = () => {
         <html lang="en" />
         <title>Legal Codes | Find Indian Laws & Acts Easily</title>
         <meta name="description" content="Search Indian legal codes, laws, and acts effortlessly. LegalCodes.in provides accurate and fast legal search." />
-        <meta name="keywords" content="Indian law, Indian legal codes, Indian acts, Constitution of India, Indian Penal Code, RTI Act, GST Act, consumer protection act, labor law India, legal search engine India, find Indian laws, Indian legal database" />
+        <meta name="keywords" content="Indianlegalservices, legaladvicesforbusiness, indianlegalcodes, Indian law, Indian legal codes, Indian acts, Constitution of India, Indian Penal Code, RTI Act, GST Act, consumer protection act, labor law India, legal search engine India, find Indian laws, Indian legal database" />
         <link rel="canonical" href="https://www.legalcodes.in/" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="LegalCodes.in" />
